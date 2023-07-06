@@ -1,0 +1,483 @@
+{
+    "data-split": "train",
+    "example-id": 1000001,
+    "messages-so-far": [
+      {
+        "speaker": "participant_1",
+        "utterance": "Hi, I want to run a graphical application from the command line, here is the script I wrote: https://paste8.com/4XQiHrXZ - it's Ubuntu Server 12.04 + Unity. What I get is an error from xhost \"unable to open display :0\" and from the graphical application I want to use (Sikuli) \"Can't connect to X11 window server using ':0' as the value of the DISPLAY variable.\". I've tried using DISPLAY:=1 as I use this number when connecting with a VNC client but it doesn't wo. rk either..."
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "is X running?"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "I think so: https://paste8.com/HvhlT6vO.  maybe you prefer this check: https://paste8.com/0OhcBmfB"
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "these days you use lightdm (or gdm, kdm) to start X, so i'd try to kill what's there but unreachable with \"sudo killall X\" and then \"sudo service lightdm start\""
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "what do I kill precisely? because it says \"X: no such process\""
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "nothing, X wasn't running if you get that, proceed with \"sudo service lightdm start\" and then test your script"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "alright but \"start: Job is already running: lightdm\""
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "worm: try restart"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "I did but I get \"No protocol specified. \" followed by \"xhost: unable to open display :0\" when executing my script (i.e. https://paste8.com/4XQiHrXZ). does it matter I run everything from a root tty? because that's what I do"
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "ahh, not a good idea to try to start X as root no.  now your regular users ~/.Xauthority file is probably owned by root, check that.  what does \"ls -la ~/.Xauthority\" give you?"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "yes I got /root/.Xauthority I need to append an entry for my regular user right?"
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "check if your regular user still owns his .Xauthority file and remove the one for root"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "there is no .Xauthority for my regular user I'm afraid"
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "well, copy the one from root to the user /home and make him own it, use the chown command.  sudo chown $USER:$USER $HOME/.Xauthority"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "done, but running $sudo service lightdm start; returns \"Sorry, user <myuser> is not allowed to execute '/usr/sbin/service lightdm start' as root on <myhost>.\""
+      },
+      {
+        "speaker": "participant_2",
+        "utterance": "is the regular user in the sudoers?"
+      },
+      {
+        "speaker": "participant_1",
+        "utterance": "no, I believe I have to create a file in /etc/sudoers.d but I don't know the syntax yet"
+      }
+    ],
+    "options-for-correct-answers": [
+      {
+        "candidate-id": "0R1OTUTWT416",
+        "utterance": "are you still running in root terminal? if so, try from a non-root one.. i've got to go prepare dinner so i'll be afk .. ask the channel for help on that, hope you get things up"
+      }
+    ],
+    "options-for-next": [
+      {
+        "candidate-id": "GLMRY50D3OMQ",
+        "utterance": "quite"
+      },
+      {
+        "candidate-id": "06Q4I0WB5F7D",
+        "utterance": "hey join #.  so i can tell you things that the kiddies won't latch on to"
+      },
+      {
+        "candidate-id": "QGOHDF0UT464",
+        "utterance": "did you complete the ubuntu installation??"
+      },
+      {
+        "candidate-id": "O1JHGMRV7POK",
+        "utterance": "how did you run mplayer?"
+      },
+      {
+        "candidate-id": "8A3DLZ1C2YPM",
+        "utterance": "a skype replacement? i think google talk works in the US (i wouldn't know i'm in uk)"
+      },
+      {
+        "candidate-id": "4CMEGXSS1Z5J",
+        "utterance": "you only need the libraries for each.... ... which isn't too expensive"
+      },
+      {
+        "candidate-id": "OVEJI3BHWK34",
+        "utterance": "try sudo apt-get install ubuntu-desktop"
+      },
+      {
+        "candidate-id": "LWHUA5X5Y66E",
+        "utterance": "which error is that?. btw don't make us ask these questions"
+      },
+      {
+        "candidate-id": "V551PDECQCHG",
+        "utterance": "I'm not sure there is one, you may need to just tweak ~/.config/xfce4."
+      },
+      {
+        "candidate-id": "NP41K6AOICPR",
+        "utterance": "- you'll figure it out - best to you."
+      },
+      {
+        "candidate-id": "8L0VHAG4UUKQ",
+        "utterance": "try running \"sudo updatedb\" then \"locate eclipse\". youll find it then"
+      },
+      {
+        "candidate-id": "41GKOPQBUHU6",
+        "utterance": "I don't remember though. anyone else? how to get verbose output during a boot? turn of boot splash during live cd?"
+      },
+      {
+        "candidate-id": "OK9ELYL65VR7",
+        "utterance": "It's painful that's true :p."
+      },
+      {
+        "candidate-id": "88U6MVJDS9XE",
+        "utterance": "Try cat /etc/issue.  Sorry, debian_version is for the debian version, not the ubuntu version"
+      },
+      {
+        "candidate-id": "6RQ2F0O080BC",
+        "utterance": "1 mini pastbin"
+      },
+      {
+        "candidate-id": "H2BJMGZRGOIM",
+        "utterance": "Hey man, earcandy killed my audio completely"
+      },
+      {
+        "candidate-id": "J0T04P7GFYDA",
+        "utterance": "pdfinfo file.pdf , the last line is the pdf version"
+      },
+      {
+        "candidate-id": "AM1WCAV9LXHC",
+        "utterance": "when you install the theme, you have to select it in gnome-appearance properties. The theme may not show up as a complete theme, so then you would have to click \"Customize\", and find the theme in the \"Controls\" tab"
+      },
+      {
+        "candidate-id": "2949SYU4K5ZQ",
+        "utterance": "do you really want it to \"integrate\" with firefox?"
+      },
+      {
+        "candidate-id": "YXQ9S7A16DOL",
+        "utterance": "you can use rcconf to enable plymouth >> sudo apt-gt install rcconf , then sudo rcconf.  you can also do sudo serivce plymouth start. service*"
+      },
+      {
+        "candidate-id": "KJ4S8CECCD4A",
+        "utterance": "all over... but mostly in /usr/bin"
+      },
+      {
+        "candidate-id": "6SLYYYRCNRXJ",
+        "utterance": "if you spread the swap out over several drives its suppose to be more efficient/faster. i hear."
+      },
+      {
+        "candidate-id": "8R5RCFTAM2ZG",
+        "utterance": "if you want gnome 2.14: go with dapper - it's mature and stable enough for everyday use"
+      },
+      {
+        "candidate-id": "KB7J3DMD2ZM4",
+        "utterance": "either way :)"
+      },
+      {
+        "candidate-id": "UYQ8DC3FP5RE",
+        "utterance": "-> you can try i guess...and til us how it goes"
+      },
+      {
+        "candidate-id": "1BRKQIXN02IS",
+        "utterance": "sorry, that is offtopic here."
+      },
+      {
+        "candidate-id": "2XP3ZQBWGKKY",
+        "utterance": "gtkhtml - What do you show as the latest. ?"
+      },
+      {
+        "candidate-id": "5IA5N1QZWITA",
+        "utterance": "there are : 802.11b/g/n - 802.11b/g - 802.11g - 802.11b"
+      },
+      {
+        "candidate-id": "TMXEVZ3VB0AV",
+        "utterance": "#opensuse #freenode google, opensuse.com"
+      },
+      {
+        "candidate-id": "V16LN56CWFTO",
+        "utterance": "look in fdisk if partition types are raid auto detect..."
+      },
+      {
+        "candidate-id": "PFVJKS0VZLIG",
+        "utterance": "can't help you there sean as I don't use Unity. I don't think so"
+      },
+      {
+        "candidate-id": "4TKVDEHSXQE7",
+        "utterance": "did you add a second line in fstab using cdrom0"
+      },
+      {
+        "candidate-id": "U1NDUO2BSXAK",
+        "utterance": "sudo aptitude install transmission"
+      },
+      {
+        "candidate-id": "8IRPPC91FKBL",
+        "utterance": "oh I get it now, it's just like minicom.  pastebin the help.  like irecovery -s , and then help.  also try \"(whatever_cmds) | irecovery -s\""
+      },
+      {
+        "candidate-id": "0R1OTUTWT416",
+        "utterance": "are you still running in root terminal? if so, try from a non-root one.. i've got to go prepare dinner so i'll be afk .. ask the channel for help on that, hope you get things up"
+      },
+      {
+        "candidate-id": "H5JCB1MGYOVL",
+        "utterance": "No I have them but when I try to apply other ones it says it does wit but it really doesn't...  When I try to change the resolution with the Nvidia control panel I get this error: Failed to set MetaMode (4) 'CRT-0: 1680x1050 @1680x1050 +0+0' (Mode 1680x1050, id: 53) on X screen 0. Would you like to remove this MetaMode?"
+      },
+      {
+        "candidate-id": "O90UWPVHR1E4",
+        "utterance": "I did, and now I use SuSe heh"
+      },
+      {
+        "candidate-id": "DO5KB93BW7PC",
+        "utterance": "i dont know, but ti hurts when package managers break. try synaptic"
+      },
+      {
+        "candidate-id": "74S8AKW8ZWFU",
+        "utterance": "Not sure how to do config files, but I know if you open synaptic you can save a package configuration and load that onto another system.  Best thing you could do is if you have any local config files back them up with your home folder, any global ones you will have to do manually"
+      },
+      {
+        "candidate-id": "BDPHDNFS14TR",
+        "utterance": "Since you apparently use irssi, perhaps you have seen this issue... sometimes all of the text disappears except the active line. The only way I know of to get it back to normal is to detach the screen, reset the console and then reattach to the screen. Maybe you know of something that will keep this from happening..."
+      },
+      {
+        "candidate-id": "6ZU1WCPRH7HU",
+        "utterance": "xrandr"
+      },
+      {
+        "candidate-id": "U3XLAOCW6IF5",
+        "utterance": "gimme a sec then :)"
+      },
+      {
+        "candidate-id": "UA7XT4WAV0HT",
+        "utterance": "that's interesting. I use kde which uses a different sound server, though, so I'm not clear on exactly what is going on there."
+      },
+      {
+        "candidate-id": "FBBJP0RX862J",
+        "utterance": "not sure .... im using bubble style"
+      },
+      {
+        "candidate-id": "4ROLOBX3R8KY",
+        "utterance": "lshw -C Network"
+      },
+      {
+        "candidate-id": "OWQW6GWHXT61",
+        "utterance": "using a package manager yes"
+      },
+      {
+        "candidate-id": "GRWGOQ7ISY7Q",
+        "utterance": "firefox or inkscape"
+      },
+      {
+        "candidate-id": "7CLHNAJYWL79",
+        "utterance": "wrong channel"
+      },
+      {
+        "candidate-id": "9P3VPPDO62T1",
+        "utterance": "i think your looking for 0644 not 0755"
+      },
+      {
+        "candidate-id": "2FOGKCC0R6S7",
+        "utterance": "there is a subtitle check box.  there is also the #handbrake channel"
+      },
+      {
+        "candidate-id": "UZEMKNS5PTHD",
+        "utterance": "\"Deleted on 2012-16-20: (From Debian) ROM; confusion with GNU ddrescue; Debian bug #677101\". you probably want gddrescue"
+      },
+      {
+        "candidate-id": "LNAVA3IVJS6J",
+        "utterance": "if you have your zone files there and bind config as well I think you should be fine"
+      },
+      {
+        "candidate-id": "FY9VUEBQF3BV",
+        "utterance": "no idea. i bet you can find something though."
+      },
+      {
+        "candidate-id": "8UGCJBUBQDW7",
+        "utterance": "do a lspci"
+      },
+      {
+        "candidate-id": "XKJ28ZUVKSMO",
+        "utterance": "!ccsm"
+      },
+      {
+        "candidate-id": "UHMOIL4BI2KR",
+        "utterance": "EasyUbuntu is a script that automates installation of some items. Use at your own risk. See http://easyubuntu.freecontrib.org/ ; for help and or discussions about EasyUbuntu please join #easyubuntu."
+      },
+      {
+        "candidate-id": "B1IOB83YM72K",
+        "utterance": "FloridayGuy: Oh, never mind. That was a bad joke"
+      },
+      {
+        "candidate-id": "6U4ASY249IG8",
+        "utterance": "you will need to sudo. check that file to see what it contains first - that's a debian solution"
+      },
+      {
+        "candidate-id": "YF4VKXZFSRDV",
+        "utterance": "Yep, it shuts stuff down, or at least, tells them to"
+      },
+      {
+        "candidate-id": "GYEEWQGXX4LG",
+        "utterance": "testdisk will recover your stuff"
+      },
+      {
+        "candidate-id": "F5WD93WLMNVA",
+        "utterance": "They got hacked."
+      },
+      {
+        "candidate-id": "Z2SS5WEM55KE",
+        "utterance": "you need the qt -dev package, search for packages with the following words in their name: lib, qt, -dev"
+      },
+      {
+        "candidate-id": "O8DHWD69OIBO",
+        "utterance": "2>/dev/null.  sorry > /dev/null"
+      },
+      {
+        "candidate-id": "QBVBCUDLVTHH",
+        "utterance": "artan1s amule, gtk gnutella limewire"
+      },
+      {
+        "candidate-id": "FPYSDOG503NQ",
+        "utterance": "RH folks are working on it, can't use their code to make a .deb?"
+      },
+      {
+        "candidate-id": "W3RH33KZH6JL",
+        "utterance": "it fails for me too :). but nevertheless i have X running :)"
+      },
+      {
+        "candidate-id": "ERQEP40Q2J3G",
+        "utterance": "what is the other OS? vista i assume?"
+      },
+      {
+        "candidate-id": "EU6I8FRTXZFX",
+        "utterance": "/etc/network/.  there is a bunch of files there"
+      },
+      {
+        "candidate-id": "FQTWFXRGJTDH",
+        "utterance": "No not me."
+      },
+      {
+        "candidate-id": "DYZHV3KYO703",
+        "utterance": "Which one?"
+      },
+      {
+        "candidate-id": "PLBBUTF126N3",
+        "utterance": "install i8kutils"
+      },
+      {
+        "candidate-id": "A9KCEU8THDR6",
+        "utterance": "How can I change which packages are installed as part of ubuntu?"
+      },
+      {
+        "candidate-id": "2O9YLMGCF24P",
+        "utterance": "O.o how did you install it exactly?"
+      },
+      {
+        "candidate-id": "I7XOQ996AIZY",
+        "utterance": "ifconfig"
+      },
+      {
+        "candidate-id": "3V10HH38AKRC",
+        "utterance": "Applications > Sound & Video > Sound Recorder"
+      },
+      {
+        "candidate-id": "52NKI2GF2V6M",
+        "utterance": "just for curiosity: why does one want a GUI for something automatically done?"
+      },
+      {
+        "candidate-id": "AHI16A3ATDK2",
+        "utterance": "the server has the speaks. speakers"
+      },
+      {
+        "candidate-id": "ENP18CYSU7FI",
+        "utterance": "Good deal, All's well that ends well."
+      },
+      {
+        "candidate-id": "1CQVA0KBR081",
+        "utterance": "do you have another interface now ?"
+      },
+      {
+        "candidate-id": "TEF7WC3P0E6M",
+        "utterance": "In that case, I suppose it's possible for a virus to find and infect files on different partitions. I could be wrong, though. Never had a virus in Linux."
+      },
+      {
+        "candidate-id": "J2XBGXJFG6LZ",
+        "utterance": "your .gvfs dir"
+      },
+      {
+        "candidate-id": "K07XI5O1ESXX",
+        "utterance": "Uh huh...  That doesn't really answer the question. :)"
+      },
+      {
+        "candidate-id": "ES8ZKE2Z03XD",
+        "utterance": "http://www.livecdlist.com/. 1st link @ google..... Also if you spend few minutes with google, you will find pretty good instructions how to resize a partition with live-cd."
+      },
+      {
+        "candidate-id": "27FMA11MJDNA",
+        "utterance": "hickenboot: maybe wine. i'll just check compatibility"
+      },
+      {
+        "candidate-id": "XISJZ00UMKVS",
+        "utterance": "~ just purge it then - if things dont work out install it again"
+      },
+      {
+        "candidate-id": "SZEJSH5HCJUA",
+        "utterance": "no patience :p"
+      },
+      {
+        "candidate-id": "YEJR0WSJYK8R",
+        "utterance": "how did you install it?"
+      },
+      {
+        "candidate-id": "1QBFSA3P43AO",
+        "utterance": "<> try installing the latest wine"
+      },
+      {
+        "candidate-id": "7490T3TY0SKF",
+        "utterance": "get Nvu from the Ubuntu Universe repo..."
+      },
+      {
+        "candidate-id": "EZHF15SR072J",
+        "utterance": "jpesittpm mptjomg. sorry my dog wont stop trying to bite my nose...  this is linux not windows.. you have to replace the display with meta city.  in terminal type in meta city --replace"
+      },
+      {
+        "candidate-id": "UL265QLZ1DZD",
+        "utterance": "that's why I hinted you to look for a button or a menu-item."
+      },
+      {
+        "candidate-id": "SX8MLZV6RPXN",
+        "utterance": "-->#sbackup"
+      },
+      {
+        "candidate-id": "FLBC7LNW2VKC",
+        "utterance": "but it works"
+      },
+      {
+        "candidate-id": "OKS1VJJ1ITEA",
+        "utterance": "right-click in the file display, you should get a \"show hidden\" option"
+      },
+      {
+        "candidate-id": "C5EN4XWD0U8Y",
+        "utterance": "that won't solve this problem, though. Give me a minute to read that HOWTO thoroughly..  did you actually do the Step 1 of the howto?"
+      },
+      {
+        "candidate-id": "49SDEPI4LNA1",
+        "utterance": "and the config-options are part of the docu"
+      },
+      {
+        "candidate-id": "8ZWV2GMDZXHH",
+        "utterance": "mic and speakers on?"
+      },
+      {
+        "candidate-id": "J15I1U5AGPZ7",
+        "utterance": "it's em0, not emo"
+      },
+      {
+        "candidate-id": "IKJR9V4LS1N4",
+        "utterance": "derander: agreed, though luckily the initial install is what, 20 minutes? :P"
+      },
+      {
+        "candidate-id": "KOKJ29MS00S6",
+        "utterance": "Sorry... I've got nothing..."
+      }
+    ],
+    "scenario": 1
+  }
